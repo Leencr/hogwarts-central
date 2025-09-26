@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hogwarts Central - Calificación de Animés y Series</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: url("https://i.ibb.co/PHZ7jpp/Harry-Potter-Quidditch-Champions-02.jpg") center/cover no-repeat fixed;
+      font-family: 'Macondo', cursive;
+      color: #f8f8f8;
+      padding-bottom: 100px;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      color: #facc15;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 700px;
+      margin: 2rem auto;
+      color: #1f2937;
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.7);
+      border: 2px solid #facc15;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.4); }
+      50% { box-shadow: 0 0 30px rgba(250, 204, 21, 0.8); }
+      100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.4); }
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="number"], input[type="text"] {
+      width: 100%;
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.9rem;
+      border: 1px solid #d1d5db;
+    }
+
+    .entry-box {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+      box-shadow: 0 0 10px rgba(107, 33, 168, 0.3);
+      border-left: 4px solid #6b21a8;
+    }
+
+    .signature {
+      text-align: center;
+      margin-top: 50px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .signature .main {
+      font-size: 0.9rem;
+      color: #d4af37;
+      text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+    }
+
+    .signature .sub {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 4px;
+    }
+
+.button-back {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+.button-back:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+  </style>
+</head>
+<body class="min-h-screen p-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-6">🏰 Hogwarts Central 🏰</h1>
+    <p class="text-lg mb-4 text-yellow-100">Califica tus animés y series favoritas mágicamente.</p>
+  </div>
+
+  <div class="form-box">
+    <form id="ratingForm">
+      <div class="mb-4">
+        <label for="nickname">Tu Nickname:</label>
+        <input type="text" id="nickname" required />
+      </div>
+      <div class="mb-4">
+        <label for="title">Nombre del animé o serie:</label>
+        <input type="text" id="title" required />
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div><label>1. ¿Qué tan atrapante fue la historia?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>2. ¿Cómo calificarías el desarrollo de los personajes?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>3. ¿Qué tan original te pareció la trama?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>4. ¿Cómo fue la calidad de la animación o producción visual?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>5. ¿Qué tan buena fue la música y el sonido?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>6. ¿Te gustó el ritmo de los episodios?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>7. ¿Qué tan emocional fue la experiencia?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>8. ¿Recomendarías esta serie o animé a otras personas?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>9. ¿Qué tan bien cerró la historia (o temporada)?</label><input type="number" min="1" max="10" required /></div>
+        <div><label>10. ¿Qué tan memorable fue esta serie o animé para ti?</label><input type="number" min="1" max="10" required /></div>
+      </div>
+      <div class="mt-6 text-center">
+        <button type="submit" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">Guardar Calificación</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-10">
+    <h2 class="text-2xl font-bold mb-4 text-yellow-100">📜 Calificaciones Guardadas</h2>
+    <div id="entries"></div>
+  </div>
+
+  <div class="signature">
+    <div class="main">✨ Creado con magia por ECB 📚</div>
+    <div class="sub">© 2025 Book Dragon Club</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('ratingForm');
+    const entriesDiv = document.getElementById('entries');
+
+    function loadEntries() {
+      entriesDiv.innerHTML = '';
+      const entries = JSON.parse(localStorage.getItem('animeRatings') || '[]');
+      entries.forEach((entry, index) => {
+        const div = document.createElement('div');
+        div.className = 'entry-box';
+        div.innerHTML = `
+          <strong>${entry.nickname}</strong> calificó <strong>${entry.title}</strong> con <strong>${entry.total}%</strong><br/>
+          <button onclick="deleteEntry(${index})" class="mt-2 bg-red-600 text-white px-2 py-1 rounded">Eliminar</button>
+        `;
+        entriesDiv.appendChild(div);
+      });
+    }
+
+    function deleteEntry(index) {
+      const entries = JSON.parse(localStorage.getItem('animeRatings') || '[]');
+      entries.splice(index, 1);
+      localStorage.setItem('animeRatings', JSON.stringify(entries));
+      loadEntries();
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputs = form.querySelectorAll('input[type="number"]');
+      let total = 0;
+      inputs.forEach(input => {
+        total += parseInt(input.value);
+      });
+      const nickname = document.getElementById('nickname').value;
+      const title = document.getElementById('title').value;
+      const percentage = Math.round((total / 100) * 100);
+
+      const newEntry = { nickname, title, total: percentage };
+      const entries = JSON.parse(localStorage.getItem('animeRatings') || '[]');
+      entries.push(newEntry);
+      localStorage.setItem('animeRatings', JSON.stringify(entries));
+      form.reset();
+      loadEntries();
+    });
+
+    loadEntries();
+  </script>
+
+<a href="https://leencr.github.io/" class="button-back">✨ Volver</a>
+</body>
+</html>
