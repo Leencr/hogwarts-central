@@ -147,13 +147,21 @@
     const form = document.getElementById('ratingForm');
     const entriesDiv = document.getElementById('entries');
 
-    function loadEntries() {
-      entriesDiv.innerHTML = '';
-      const entries = JSON.parse(localStorage.getItem('animeRatings') || '[]');
-      entries.forEach((entry, index) => {
-        const div = document.createElement('div');
-        div.className = 'entry-box';
-        div.innerHTML = `
+    
+function loadEntries() {
+  entriesDiv.innerHTML = '';
+  let entries = JSON.parse(localStorage.getItem('animeRatings') || '[]');
+  entries.sort((a, b) => b.total - a.total); // orden descendente
+  entries.forEach((entry, index) => {
+    const div = document.createElement('div');
+    div.className = 'entry-box';
+    div.innerHTML = `
+      <strong>${entry.nickname}</strong> calificó <strong>${entry.title}</strong> con <strong>${entry.total}%</strong><br/>
+      <button onclick="deleteEntry(${index})" class="mt-2 bg-red-600 text-white px-2 py-1 rounded">Eliminar</button>
+    `;
+    entriesDiv.appendChild(div);
+  });
+}
           <strong>${entry.nickname}</strong> calificó <strong>${entry.title}</strong> con <strong>${entry.total}%</strong><br/>
           <button onclick="deleteEntry(${index})" class="mt-2 bg-red-600 text-white px-2 py-1 rounded">Eliminar</button>
         `;
